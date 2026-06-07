@@ -1,0 +1,5 @@
+what to make 
+1. signup login / auth , middleware , database 
+2. task management with ightweight planning/ todo with description 
+3. frontend 
+4. connect both together
