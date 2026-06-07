@@ -1,5 +1,4 @@
 require('dotenv').config({ path: "./BackEnd/.env" });
-
 const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require('./routes/auth.routes');
