@@ -3,7 +3,7 @@ require('dotenv').config()
 const { Schema } = mongoose;
 
 
-const user = new mongoose.Schema({
+const User = new mongoose.Schema({
         username:{
             type:String,
             required:true
@@ -19,6 +19,24 @@ const user = new mongoose.Schema({
             type:String,
             required:true}
 
+})
+
+const Todo= new mongoose.Schema({
+    title:{
+        type:String,
+        required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
+    done:{
+        type:Boolean,
+        required:true        
+    },
+    userId:{
+        type: Schema.Types.ObjectId, ref: "User"
+    }
 })
 
 const UserModel = mongoose.model("users", user);

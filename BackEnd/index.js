@@ -3,6 +3,7 @@ require('dotenv').config({ path: "./BackEnd/.env" });
 const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require('./routes/auth.routes');
+const taskRoutes = require('./routes/task.routes');
 
 const app = express();
 app.use(express.json());
@@ -10,7 +11,7 @@ app.use('/api/auth', authRoutes);
 
 const { JWT_SECRET, PORT } = process.env;
 
-mongoose
+mongoose    
     .connect(process.env.MONGODB_URL)
     .then(() => {
         console.log("Connected To MongoDB");
