@@ -21,3 +21,19 @@ export async function AddTodo(req, res) {
 
   res.json({ message: "Todo created" });
 };
+
+export async function ShowTodo(){
+  const {userId} = req.body
+
+  const TodoModel = await TodoModel.find({
+      userId
+  }).populate("userId")
+  .exec()
+  .then(console.log("TodoModel Found"))
+
+  res.json({
+    todo
+  })
+}
+
+module.export = { AddTodo , ShowTodo }

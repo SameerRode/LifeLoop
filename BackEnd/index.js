@@ -8,7 +8,6 @@ const taskRoutes = require('./routes/task.routes');
 const app = express();
 app.use(express.json());
 app.use('/api/auth', authRoutes);
-
 const { JWT_SECRET, PORT } = process.env;
 
 mongoose    
