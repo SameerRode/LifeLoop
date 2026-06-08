@@ -4,6 +4,6 @@ const router = express.Router();
 
     router.post('/AddTodo', AddTodo(req,res))
 
-    router.post('/Show' , ShowTodo(req,res))
+    router.get('/Show' , ShowTodo(req,res))
 
     export default router;

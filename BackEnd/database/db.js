@@ -6,29 +6,34 @@ const { Schema } = mongoose;
 const User = new mongoose.Schema({
         username:{
             type:String,
-            required:true
+            required:true,
+            trim:true
         },
 
         email:{
             type:String,
             required:true,
+            trim:true,
             
         },
 
         password:{
             type:String,
-            required:true}
+            required:true,
+        trim:true}
 
 })
 
 const Todo= new mongoose.Schema({
     title:{
         type:String,
-        required:true
+        required:true,
+        trim:true
     },
     description:{
         type:String,
-        required:true
+        required:true,
+        trim:true
     },
     done:{
         type:Boolean,
@@ -36,6 +41,28 @@ const Todo= new mongoose.Schema({
     },
     userId:{
         type: Schema.Types.ObjectId, ref: "User"
+    }
+})
+
+const Shop = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    rating:{
+        type:Number,
+        min:1, max:5,
+        trim:true
+    },
+    price:{
+        type:Number,
+        required:true,
+        trim:true
+    },
+    CreatedAt:{
+        type:Date,
+        default:Date.now 
     }
 })
 

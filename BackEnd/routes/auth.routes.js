@@ -4,8 +4,8 @@ const router = express.Router();
 
 //--------------*endpoints*---------------
 
-    router.post('/signup',signup);
+    router.post('/signup',signup(req,res));
 
-    router.post('/signin',signin);
+    router.post('/signin',signin(req,res));
 
 module.exports = router;

@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require('./routes/auth.routes');
 const taskRoutes = require('./routes/task.routes');
+const shopRoutes = require('./routes/shop.routes')
 
 const app = express();
 app.use(express.json());

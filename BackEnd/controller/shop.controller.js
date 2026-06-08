@@ -8,4 +8,36 @@ const {ShopModel} = require('../database/db')
 
 export async function AddToCart(){
     
+    const { name, rating , price , CreatedAt } = req.body
+    try{
+        await CartModel.create({
+            name: name,
+            rating: rating,
+            price: price,
+            CreatedAt: CreatedAt,
+        })
+
+    }catch (error) {
+        res.status(500).json({
+            message: "pease fill all parameters",
+            error: error.message
+        });
+    }
+    
+
 }
+
+export async function ShowCart(){
+  const {userId} = req.body
+
+  const CartModel = await CartModel.find({
+      userId
+  }).populate("userId")
+  .exec()
+  .then(console.log("CartModel Found"))
+
+  res.json({
+    Cart
+  })
+}
+module.export = { AddToCart , ShowCart }
