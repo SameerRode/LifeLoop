@@ -4,7 +4,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 const app=express();
 app.use(express.json());
-const {ShopModel} = require('../database/db')
+const {ShopModel} = require('../database/Shop.db')
 
 export async function AddToCart(){
     

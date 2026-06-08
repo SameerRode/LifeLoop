@@ -1,9 +1,13 @@
 require('dotenv').config({ path: "./BackEnd/.env" });
 const express = require("express");
 const mongoose = require("mongoose");
+const db = require('./database/db')
 const authRoutes = require('./routes/auth.routes');
 const taskRoutes = require('./routes/task.routes');
 const shopRoutes = require('./routes/shop.routes')
+const userdb = require('./database/User.db')
+const tododb = require('./database/Todo.db')
+const Shopdb = require('./database/Shop.db')
 
 const app = express();
 app.use(express.json());

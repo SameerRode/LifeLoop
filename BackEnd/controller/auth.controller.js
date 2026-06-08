@@ -1,7 +1,7 @@
 const express = require ('express');
 const jwt  = require ('jsonwebtoken');
 const dotenv = require ('dotenv');
-const { UserModel } = require('../database/db');
+const { UserModel } = require('../database/User.db');
 const bcrypt = require ('bcrypt');
 dotenv.config();
 const app = express();
