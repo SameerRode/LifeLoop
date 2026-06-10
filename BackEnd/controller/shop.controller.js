@@ -12,7 +12,6 @@ export async function AddToCart(){
     try{
         await CartModel.create({
             name: name,
-            rating: rating,
             price: price,
             CreatedAt: CreatedAt,
         })

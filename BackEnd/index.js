@@ -8,10 +8,16 @@ const shopRoutes = require('./routes/shop.routes')
 const userdb = require('./database/User.db')
 const tododb = require('./database/Todo.db')
 const Shopdb = require('./database/Shop.db')
+const cors = require("cors");
+
+
+app.use(cors());
 
 const app = express();
 app.use(express.json());
-app.use('/api/auth', authRoutes);
+app.use('/api')
+app.use('/auth', authRoutes);
+app.use('/api/AddToCart', ShopRoutes);
 const { JWT_SECRET, PORT } = process.env;
 
 mongoose    
@@ -25,4 +31,4 @@ mongoose
     .catch((err) => {
         console.log("MongoDB Connection Failed:", err);
         process.exit(1);
-    });
+    }); 
