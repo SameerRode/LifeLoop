@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter , Routes, Route } from "react-router-dom"
-import {  Layout, Signup , Signin, Home ,Addtocart,Cart , Createtodo , Showtodo } from './components/functions'
+import {  Layout, Signup , Signin, Home ,Addtocart , Createtodo , ShowCart ,Showtodo } from './components/functions'
 function App() {
   return (<div>
 
@@ -13,7 +13,7 @@ function App() {
                   <Route path='/auth/sign-up' element={<Signup/>}/>
                   <Route path='/auth/sign-in' element={<Signin/>}/>
                   <Route path='/shop/Addtocart' element={<Addtocart/>}/>
-                  <Route path='/shop/Cart' element={<Cart/>}/>
+                  <Route path='/shop/Cart' element={<ShowCart/>}/>
                   <Route path='/task/Createtodo' element={<Createtodo/>}/>
                   <Route path='/task/Showtodo' element={<Showtodo/>}/>
                 <Route/>

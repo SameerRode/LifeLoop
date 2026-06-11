@@ -1,4 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
+import {Todo} from "../components/Todo"
+import { Cart } from "./Cart";
 
 export function Layout() {
     return (
@@ -228,10 +230,10 @@ export function Createtodo() {
     );
 }
 
-export function Cart() {
+export function <Show></Show>Cart() {
     return (
         <div className="flex items-center justify-center min-h-screen text-2xl text-gray-400">
-            Cart Page
+            {Cart}
         </div>
     );
 }
@@ -239,7 +241,7 @@ export function Cart() {
 export function Showtodo() {
     return (
         <div className="flex items-center justify-center min-h-screen text-2xl text-gray-400">
-            Todo List Page
+            {Todo}
         </div>
     );
 }

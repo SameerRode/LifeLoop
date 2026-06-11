@@ -1,42 +1,51 @@
-const express = require('express')
-const jwt = require('jsonwebtoken')
-const dotenv = require('dotenv')
-dotenv.config()
-const app=express();
+const express = require("express");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+dotenv.config();
+
+const app = express();
 app.use(express.json());
-const {ShopModel} = require('../database/Shop.db')
 
-export async function AddToCart(){
-    
-    const { name, rating , price , CreatedAt } = req.body
-    try{
-        await CartModel.create({
-            name: name,
-            price: price,
-            CreatedAt: CreatedAt,
-        })
+const { ShopModel } = require("../database/Shop.db");
 
-    }catch (error) {
-        res.status(500).json({
-            message: "pease fill all parameters",
-            error: error.message
-        });
-    }
-    
+async function AddToCart(req, res) {
+  const { name, price, CreatedAt, userId } = req.body;
 
+  try {
+    const cartItem = await ShopModel.create({
+      name,
+      price,
+      CreatedAt,
+      userId,
+    });
+
+    return res.status(201).json({
+      message: "Item added to cart",
+      cartItem,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Please fill all parameters",
+      error: error.message,
+    });
+  }
 }
 
-export async function ShowCart(){
-  const {userId} = req.body
+async function ShowCart(req, res) {
+  const { userId } = req.body;
 
-  const CartModel = await CartModel.find({
-      userId
-  }).populate("userId")
-  .exec()
-  .then(console.log("CartModel Found"))
+  try {
+    const cartItems = await ShopModel.find({ userId });
 
-  res.json({
-    Cart
-  })
+    return res.json({
+      cartItems,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Error fetching cart",
+      error: error.message,
+    });
+  }
 }
-module.export = { AddToCart , ShowCart }
+
+module.exports = { AddToCart, ShowCart };

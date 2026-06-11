@@ -8,11 +8,6 @@ const Shop = new mongoose.Schema({
         required:true,
         trim:true
     },
-    rating:{
-        type:Number,
-        min:1, max:5,
-        trim:true
-    },
     price:{
         type:Number,
         required:true,
@@ -42,6 +37,6 @@ const connectShopDB = async() =>{
 const ShopModel = mongoose.model("todos", Todo);
 
 module.exports={
-    TodoModel,
+    ShopModel,
     connectShopDB
 }
